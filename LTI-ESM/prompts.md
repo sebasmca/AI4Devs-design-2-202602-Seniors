@@ -1,4 +1,4 @@
-# LTI-ESM - Prompt Log
+# LTI-ESM - Prompt Log 
 
 ## Module 5 - Part 2
 
@@ -33,6 +33,7 @@ Escribe en tono profesional, como documento dirigido a stakeholders
 ```
 
 > Adicionalmente le adjunte mi documento de diseño inicial de la parte 1 del ejercicio [LTI-ESM.md]
+
 
 ### User Stories Generation
 
@@ -73,13 +74,12 @@ Justifica brevemente el orden.
 ```
 
 > Resultado observado:
->
-> - Priorización poco clara
-> - Sin criterio definido
-> - Justificaciones superficiales
+>  - Priorización poco clara
+>  - Sin criterio definido
+>  - Justificaciones superficiales
+
 
 PROMPT 2 (Usando MoSCoW)
-
 ```md
 # ROLE
 Actúa como un Product Owner senior.
@@ -99,51 +99,161 @@ Para cada historia incluye:
 ```
 
 > Resultado observado:
->
-> - Priorización clara y estructurada
-> - Uso de criterio explícito (MoSCoW)
-> - Mejor justificación de decisiones
-> - Backlog más profesional
+>  - Priorización clara y estructurada
+>  - Uso de criterio explícito (MoSCoW)
+>  - Mejor justificación de decisiones
+>  - Backlog más profesional
+
+
 
 PROMPT 3 (Usando User Story Mapping)
-
 ```md
-# ROLE 
-Actúa como un Product Owner senior con experiencia en definición de producto mediante User Story Mapping. 
+# ROLE
+Actúa como un Product Owner senior.
 
-# OBJECTIVE 
-A partir de las siguientes user stories, genera un Product Backlog priorizado utilizando la técnica de User Story Mapping. 
+# OBJECTIVE
+A partir de las siguientes user stories, genera un Product Backlog priorizado usando la técnica User Story Mapping
 
-# REQUIREMENTS 
+# REQUIREMENTS
+- Para el User Story Mapping no traces ninguna subdivisión horizontal, ya que todas las stories ya forman parte del MVP
 
-## 1. User Story Mapping 
-- Organiza las historias siguiendo un flujo de usuario de izquierda a derecha (actividades principales) 
-- Agrupa las historias en bloques funcionales que representen pasos del journey del usuario 
-- No incluyas subdivisión horizontal (todas las historias pertenecen al MVP) 
-
-## 2. Estructura 
-- Define primero las actividades principales (ej: gestionar vacantes, gestionar candidatos, evaluar candidatos) 
-- Bajo cada actividad, agrupa las user stories correspondientes en orden lógico 
-
-## 3. Priorización 
-- Ordena las historias dentro de cada actividad en orden de ejecución real 
-- Justifica brevemente el orden basado en dependencias y valor para el usuario 
-
-## 4. Representación visual 
-- Genera un diagrama en Mermaid que represente el User Story Mapping: 
-- Flujo horizontal = actividades - Bajo cada actividad = user stories asociadas 
-
-## 5. Formato de salida 
-Devuelve el resultado en este orden: 
-1. Actividades principales del usuario 
-2. User Story Mapping (estructura textual) 
-3. Diagrama Mermaid del mapping 
-4. Backlog global priorizado 
-5. Explicación de la lógica de priorización 
-
-# ADDITIONAL INSTRUCTIONS 
-- Mantén foco en el flujo real del usuario definido en el PRD 
-- No inventes funcionalidades fuera del scope - Prioriza claridad visual y lógica de producto 
-- Asegúrate de que el mapping refleje cómo se usaría realmente el sistema
+# OUTPUT
+1. Backlog por épicas
+2. Backlog global priorizado y gráfico en Mermaid
+3. Explicación de la lógica de priorización
 ```
 
+> Resultado observado:
+>  - Priorización clara y estructurada
+>  - Uso de técnica explícita (User Story Mapping)
+>  - Mejor justificación de decisiones
+>  - Backlog más profesional
+>  - Incluye un diagrama en mermaid, lo que lo hace más visual
+
+
+> CONCLUSIÓN:
+> En miopinión el prompt #2 arrojó los mejores resultados en el sentido de que fueron más prácticos y concisos, la estructura de Must, Should y Could tenía más sentido para mi en un contexto tan cambiante como puede ser el de un MVP y estaba realmente claro lo que era crítico para el MPV. 
+> El prompt #3 está bien porque obliga a profundizar más en las tareas que irá realizando el usuario. Si bien inicialment eno lo consideré y tuve que iterar el diagrama. También tuve problemas para que el diagrama en mermaid tomase forma real de User Story Mapping, acabé teniendo que adaptarlo a mano. Lo consideraría como una buena opción para una fase posterior al MVP.
+
+
+### Tickets Generation
+
+```md
+# ROLE
+Actúa como un Product Owner senior trabajando con un equipo de desarrollo en una reunión de planificación (sprint planning).
+
+# OBJECTIVE
+A partir de las siguientes User Stories, desglosa cada una en tickets técnicos listos para desarrollo, simulando el nivel de detalle real de una planificación.
+
+# REQUIREMENTS
+
+## 1. Alcance
+- Trabaja sobre las 3 primeras User Stories
+- Genera tickets que cubran el flujo completo de la funcionalidad
+- Incluye frontend, backend y validaciones cuando aplique
+
+## 2. Para cada User Story incluye:
+- ID y título de la User Story
+- Breve contexto funcional
+
+## 3. Para cada ticket incluye:
+- ID del ticket
+- Título claro y accionable
+- Tipo (Frontend / Backend / Fullstack)
+- Descripción técnica concreta (qué hay que construir)
+- Criterios de aceptación (Given / When / Then)
+- Dependencias (si existen)
+
+## 4. Nivel de detalle
+- Los tickets deben ser implementables en 1 día aprox.
+- Evita descripciones genéricas
+- Incluye detalles técnicos (ej: endpoints, validaciones, estados UI, estructura de datos si aplica)
+
+## 5. Organización
+- Agrupa los tickets bajo cada User Story
+- Ordena los tickets en el orden en que se desarrollarían
+
+## 6. Enfoque
+- Prioriza claridad técnica sobre explicación teórica
+- Simula una conversación real de planning (qué hay que hacer, no por qué)
+
+# OUTPUT
+Devuelve el resultado estructurado así:
+
+1. User Story 1
+   - Contexto
+   - Lista de tickets
+
+2. User Story 2
+   - Contexto
+   - Lista de tickets
+
+3. User Story 3
+   - Contexto
+   - Lista de tickets
+
+# ADDITIONAL INSTRUCTIONS
+- No inventes funcionalidades fuera del PRD
+- Mantén consistencia con el modelo de datos definido
+- Asegura que los tickets cubren completamente la implementación de la historia
+```
+
+### Estimations
+
+```md
+# ROLE
+Actúa como un Product Owner senior facilitando una sesión de estimación con un equipo de desarrollo (backend + frontend).
+
+# OBJECTIVE
+A partir de los siguientes tickets técnicos, estima el esfuerzo de cada uno utilizando Story Points.
+
+# REQUIREMENTS
+
+## 1. Estimación
+- Asigna Story Points usando la escala Fibonacci: 1, 2, 3, 5, 8
+- La estimación debe reflejar:
+  - Complejidad técnica
+  - Esfuerzo de implementación
+  - Riesgo / incertidumbre
+
+## 2. Para cada ticket incluye:
+- ID del ticket
+- Título
+- Tipo (Frontend / Backend / Fullstack)
+- Estimación en Story Points
+- Justificación breve (1–2 líneas máximo)
+
+## 3. Criterios de estimación
+Ten en cuenta:
+- Integraciones (API, servicios externos)
+- Validaciones y edge cases
+- Complejidad de UI (formularios, estados, navegación)
+- Dependencias con otros tickets
+- Posibles riesgos técnicos
+
+## 4. Output adicional
+- Identifica:
+  - Ticket más complejo
+  - Ticket más incierto
+- Calcula:
+  - Total de Story Points del conjunto
+
+## 5. Formato de salida
+
+Devuelve:
+
+1. Tabla de estimación:
+   - ID | Título | Tipo | Story Points | Justificación
+
+2. Resumen:
+   - Total Story Points
+   - Ticket más complejo
+   - Ticket con mayor incertidumbre
+
+# ADDITIONAL INSTRUCTIONS
+- No sobreestimes tickets simples (ej: CRUD básico no puede valer 5 puntos)
+- Evita justificar con frases genéricas
+- Sé consistente entre tickets similares
+- Piensa como si el equipo tuviera experiencia media
+```
+> La estimación se realizó utilizando Story Points basados en la secuencia Fibonacci, considerando complejidad técnica, dependencias y riesgo, simulando una dinámica real de equipo
